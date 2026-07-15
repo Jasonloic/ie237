@@ -173,11 +173,14 @@ const Header = ({ className = "" }) => {
         </section>
       </div>
       <div className="lg:absolute sm:relative right-0 my-10 lg:top-46 lg:w-150 max-w-[1325px] z-0 lg:h-[500px] object-contain mx-auto block px-6">
-        <img
-            className="rounded-2xl"
-            alt=""
-            src="/IMG_8252.webp"
-        />
+        <div className="relative rounded-2xl overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-black/15 after:pointer-events-none">
+          <img
+              className="rounded-2xl w-full h-full object-cover"
+              alt=""
+              src="/IMG_8252.webp"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+        </div>
       </div>
     </header>
   );

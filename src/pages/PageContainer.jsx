@@ -47,6 +47,7 @@ const PageContainer = () => {
           <h3 className="m-8 sm:text-[20px] lg:text-[26px] lg:mx-100 relative lg:w-full tracking-[-0.02em] leading-[1.1] font-bold text-natural-black">
             Nos dernières productions ouvertes au public
           </h3>
+          <div id="publications"></div>
           <Livrables />
         </main>
 
