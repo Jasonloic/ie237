@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import RevealOnScroll from "./RevealOnScroll";
 
 const piliers = [
   {
@@ -99,87 +100,126 @@ const services = [
 const ServicesSection = ({ className = "" }) => {
   return (
       <section
-          className={`relative w-full bg-milestone-webflow-html-website-template-webflow-io-1440x761-default-1-nero py-16 md:py-20 px-6 sm:px-10 lg:px-[129px] text-left text-xl text-milestone-webflow-html-website-template-webflow-io-1440x761-default-1-black font-[Manrope] ${className}`}
+          className={`relative w-full bg-background py-16 md:py-20 px-6 sm:px-10 lg:px-[129px] text-left text-xl text-heading font-[Manrope] ${className}`}
       >
-        <div className="max-w-[1440px] mx-auto flex flex-col gap-16"
-             id="offres-services">
+        <div
+            className="max-w-[1440px] mx-auto flex flex-col gap-16"
+            id="offres-services"
+        >
           <div className="max-w-[720px] flex flex-col gap-3">
-            <b className="uppercase text-sm text-[#a98047] tracking-wide">
+            <b className="uppercase text-sm text-primary tracking-wide">
               Nos offres de services
             </b>
-            <h1 className="m-0 text-[28px] sm:text-[32px] lg:text-[40px] tracking-[-0.03em] leading-tight font-extrabold">
+
+            <h1 className="m-0 text-[28px] sm:text-[32px] lg:text-[40px] tracking-[-0.03em] leading-tight font-extrabold text-heading">
               L'information stratégique, votre avantage concurrentiel
             </h1>
-            <p className="m-0 text-base text-[#8b8a8f]">
+
+            <p className="m-0 text-base text-body">
               Trois piliers au service de votre compétitivité
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {piliers.map((p) => (
+
+          {piliers.map((p, index) => (
+              <RevealOnScroll
+                  key={p.number}
+                  delay={index * 120}
+              >
+
                 <div
-                    key={p.number}
-                    className="rounded-[15px] border border-[#e5e4e2] p-6 flex flex-col gap-3"
+                    className="
+        rounded-2xl
+        border border-border
+        bg-surface
+        p-6
+        transition-all
+        duration-300
+        hover:border-primary
+        hover:shadow-md
+      "
                 >
-              <span className="text-sm font-bold text-[#4c4034]">
-                {p.number} —
-              </span>
-                  <h3 className="m-0 text-lg font-bold text-[#a98047]">{p.title}</h3>
-                  <p className="m-0 text-sm text-[#4c4034]">{p.description}</p>
+
+      <span className="text-sm font-bold text-primary">
+        {p.number} —
+      </span>
+
+                  <h3 className="mt-3 text-lg font-bold text-heading">
+                    {p.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm text-body">
+                    {p.description}
+                  </p>
+
                 </div>
-            ))}
-          </div>
+
+              </RevealOnScroll>
+          ))}
+
           <div className="flex flex-col gap-10">
-            {services.map((s) => (
+            {services.map((s, index) => (
+                <RevealOnScroll delay={index * 150}>
                 <div
                     key={s.number}
-                    className="rounded-[15px] bg-white sm:bg-transparent border border-[#e5e4e2] p-6 sm:p-10 flex flex-col gap-6"
+                    className="rounded-2xl bg-surface border border-border p-6 sm:p-10 flex flex-col gap-6 shadow-sm hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div className="flex items-start gap-4">
-                  <span className="text-sm font-bold text-[#a98047] shrink-0">
-                    {s.number}
-                  </span>
+              <span className="text-sm font-bold text-primary shrink-0">
+                {s.number}
+              </span>
+
                       <div className="flex flex-col gap-1">
-                        <h3 className="m-0 text-xl sm:text-2xl font-bold tracking-[-0.02em]">
+                        <h3 className="m-0 text-xl sm:text-2xl font-bold tracking-[-0.02em] text-heading">
                           {s.title}
                         </h3>
-                        <p className="m-0 text-sm text-[#4c4034]">{s.tagline}</p>
+
+                        <p className="m-0 text-sm text-body">
+                          {s.tagline}
+                        </p>
                       </div>
                     </div>
-                    <span className="shrink-0 self-start sm:self-center rounded-full bg-[#a98047] text-white text-xs font-medium px-4 py-1.5">
-                  {s.badge}
-                </span>
+
+                    <span className="shrink-0 self-start sm:self-center rounded-full bg-primary text-white text-xs font-semibold px-4 py-1.5">
+              {s.badge}
+            </span>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide">
+                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide text-heading">
                       Présentation
                     </h4>
-                    <p className="m-0 text-base text-[#4c4034] leading-relaxed">
+
+                    <p className="m-0 text-base text-body leading-relaxed">
                       {s.presentation}
                     </p>
                   </div>
 
                   <div className="flex flex-col gap-3">
-                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide">
+                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide text-heading">
                       Ce que nous faisons pour vous
                     </h4>
-                    <ul className="m-0 pl-5 flex flex-col gap-2 list-disc marker:text-[#a98047]">
+
+                    <ul className="m-0 pl-5 flex flex-col gap-2 list-disc marker:text-primary">
                       {s.items.map((item) => (
-                          <li key={item} className="text-base text-[#8b8a8f]">
+                          <li key={item} className="text-base text-body">
                             {item}
                           </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="flex flex-col gap-2 rounded-[10px] bg-[#4c4034]/5 p-4">
-                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide text-[#4c4034]">
+                  <div className="rounded-xl bg-primary-bg border border-primary-soft p-5">
+                    <h4 className="m-0 text-sm font-bold uppercase tracking-wide text-primary">
                       Valeur ajoutée
                     </h4>
-                    <p className="m-0 text-base text-[#4c4034]">{s.valeur}</p>
+
+                    <p className="mt-2 text-base text-body">
+                      {s.valeur}
+                    </p>
                   </div>
                 </div>
+                </RevealOnScroll>
             ))}
           </div>
         </div>

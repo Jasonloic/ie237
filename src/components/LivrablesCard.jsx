@@ -12,7 +12,7 @@ const livrables = [
         description:
             'Balance Commerciale Camerounaise, Filière Coton, Filière Soja',
         label: 'Étude',
-        pdfUrl: '/Docs/Note_veille_economique_et_strategique.pdf'
+        pdfUrl: '/Docs/Note_veille_economique_et_strategique2.pdf'
     },
     {
         title: 'Fiche d\'Analyse',

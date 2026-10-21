@@ -66,16 +66,25 @@ const PdfThumbnail = ({ pdfUrl }) => {
     return (
         <div className="absolute inset-0">
             {loading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#1a1620]">
-                    <span className="text-xs text-white/50">Chargement...</span>
+                <div className="absolute inset-0 flex items-center justify-center bg-background">
+      <span className="text-sm text-body animate-pulse">
+        Chargement...
+      </span>
                 </div>
             )}
+
             {error && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[#1a1620] p-4 text-center">
-                    <span className="text-xs text-white/50">Aperçu indisponible</span>
-                    <span className="text-[10px] text-white/30 break-all">{errorMessage}</span>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background p-4 text-center">
+      <span className="text-sm font-medium text-heading">
+        Aperçu indisponible
+      </span>
+
+                    <span className="text-xs text-muted break-all">
+        {errorMessage}
+      </span>
                 </div>
             )}
+
             <canvas
                 ref={canvasRef}
                 className="w-full h-full object-cover"

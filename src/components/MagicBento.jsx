@@ -444,15 +444,20 @@ const MagicBento = ({
             <style>
                 {`
           .bento-section {
-            --glow-x: 50%;
-            --glow-y: 50%;
-            --glow-intensity: 0;
-            --glow-radius: 200px;
-            --glow-color: ${glowColor};
-            --border-color: #2F293A;
-            --background-dark: #120F17;
-            --white: hsl(0, 0%, 100%);
-            margin-left: 20%;
+              --glow-x: 50%;
+              --glow-y: 50%;
+              --glow-intensity: 0;
+              --glow-radius: 200px;
+              --glow-color: ${glowColor};
+              --border-color: #2F293A;
+              --background-dark: #120F17;
+              --white: hsl(0, 0%, 100%);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-left: auto;
+              margin-right: auto;
+              text-align: center;
           }
           .card-responsive {
             grid-template-columns: 4fr;
@@ -488,7 +493,7 @@ const MagicBento = ({
             )}
 
             <BentoCardGrid gridRef={gridRef}>
-                <div className="card-responsive mx-20 grid gap-4">
+                <div className="card-responsive grid gap-5">
                     {pdfs.map((pdf, index) => {
                         const baseClassName = `card flex flex-col justify-end relative aspect-[3/4] min-h-[380px] sm:min-h-[420px] lg:min-h-[260px] w-full max-w-full rounded-[20px] border border-solid font-light overflow-hidden transition-colors duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
                             enableBorderGlow ? 'card--border-glow' : ''
